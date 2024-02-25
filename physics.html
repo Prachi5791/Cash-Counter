@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics Calculator</title>
+</head>
+<body>
+
+<select id="calculationSelect" onchange="changeInputs()">
+  <option value="length">Length</option>
+  <option value="velocity">Velocity</option>
+  <option value="mass">Mass</option>
+</select>
+
+<div id="inputsContainer"></div>
+
+<div id="result"></div>
+
+<script>
+function changeInputs() {
+  var selectValue = document.getElementById("calculationSelect").value;
+  var inputsContainer = document.getElementById("inputsContainer");
+  inputsContainer.innerHTML = "";
+
+  if (selectValue === "length") {
+    inputsContainer.innerHTML += 'Velocity: <input type="number" id="velocity"> <select id="velocityUnit"><option value="m/s" id="m/s">m/s</option><option value="km/h" id="km/h">km/h</option></select><br>';
+    inputsContainer.innerHTML += 'Mass: <input type="number" id="mass"> <select id="massUnit"><option value="kg" id="kg">kg</option><option value="g" id="g">g</option></select><br>';
+  } else if (selectValue === "velocity") {
+    inputsContainer.innerHTML += 'Length: <input type="number" id="length"> <select id="lengthUnit"><option value="m">m</option><option value="km">km</option></select><br>';
+    inputsContainer.innerHTML += 'Mass: <input type="number" id="mass"> <select id="massUnit"><option value="kg">kg</option><option value="g">g</option></select><br>';
+  } else if (selectValue === "mass") {
+    inputsContainer.innerHTML += 'Length: <input type="number" id="length"> <select id="lengthUnit"><option value="m">m</option><option value="km">km</option></select><br>';
+    inputsContainer.innerHTML += 'Velocity: <input type="number" id="velocity"> <select id="velocityUnit"><option value="m/s">m/s</option><option value="km/h">km/h</option></select><br>';
+  }
+}
+
+function calculate() {
+  var selectValue = document.getElementById("calculationSelect").value;
+  var resultElement = document.getElementById("result");
+  var result;
+  const h = 6.626 *Math.pow(10,-34);
+
+  /*if (selectValue === "length") {
+    var velocity = parseFloat(document.getElementById("velocity").value);
+    var mass = parseFloat(document.getElementById("mass").value);
+    if(document.getElementById("velocityUnit").value === m/s){
+        velocity = velocity;
+    }
+    else if(document.getElementById("velocityUnit").value === km/h){
+        velocity = parseFloat((velocity * 5.0)/18);
+    }
+    
+    if(document.getElementById("massUnit").value === kg){
+        mass = mass;
+    }
+    else if(document.getElementById("massUnit").value === g){
+        mass = parseFloat(mass/1000);
+    }
+
+    result = parseFloath/(velocity *mass);
+    console.log(result);
+    
+  }*/
+  if (selectValue === "length") {
+    var velocity = parseFloat(document.getElementById("velocity").value);
+    var mass = parseFloat(document.getElementById("mass").value);
+    
+    if (document.getElementById("velocityUnit").value === "m/s") {
+        // velocity is already in m/s
+        velocity = velocity;
+    } else if (document.getElementById("velocityUnit").value === "km/h") {
+        // convert velocity to m/s
+        velocity = parseFloat((velocity * 5.0) / 18);
+    }
+    
+    if (document.getElementById("massUnit").value === "kg") {
+        // mass is already in kg
+        mass = mass;
+    } else if (document.getElementById("massUnit").value === "g") {
+        // convert mass to kg
+        mass = parseFloat(mass / 1000);
+    }
+
+    if (velocity !== 0 && mass !== 0) {
+        var result = parseFloat(h / (velocity * mass));
+        console.log(result);
+    } else {
+        console.log("Invalid input: Division by zero");
+    }
+}
+
+   else if (selectValue === "velocity") {
+    var length = parseFloat(document.getElementById("length").value);
+    var mass = parseFloat(document.getElementById("mass").value);
+    result = length * mass;
+  } else if (selectValue === "mass") {
+    var length = parseFloat(document.getElementById("length").value);
+    var velocity = parseFloat(document.getElementById("velocity").value);
+    result = length / velocity;
+  }
+
+  resultElement.textContent = "Result: " + result;
+}
+</script>
+
+<button onclick="calculate()">Calculate</button>
+
+</body>
+</html>
+
