@@ -1,113 +1,142 @@
-body{
+/* Reset & Base */
+body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #E0FFFF,#FFc0CB);
-    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #89f7fe, #ffbfd2);
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container{
+/* Glassmorphism Container */
+.container {
     max-width: 600px;
-    margin: 100px auto;
-    padding: 20px 5px;
-    background: linear-gradient(to left, #3466d1, #FF1493);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    animation: fadeIn 2s ease;
+    width: 90%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-out;
     display: flex;
     align-items: center;
     flex-direction: column;
-
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes fadeIn{
-    0%{
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-25px);
     }
-    100%{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.header{
+/* Heading */
+.header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #fff;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
-.row{
-    margin-top: 10px;
+
+/* Input Row */
+.row {
+    margin: 12px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
+}
+.row:hover {
+    transform: scale(1.03);
+}
 
+/* Images in Row */
+img {
+    margin-right: 12px;
+    width: 30px;
+    height: 30px;
 }
-.row:hover{
-    transform: scale(1.05);
-}
-img{
-    margin-right: 10px;
-}
-input[type="number"]{
-    padding: 10px;
-    font-size: 15px;
+
+/* Input Box Styling */
+input[type="number"] {
+    padding: 10px 12px;
+    font-size: 16px;
     width: 250px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    flex: 1;
-    transition: border-color 0.3s ease;
-    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.65);
     color: #333;
     font-weight: 600;
-
-}
-input[type="number"]:focus{
-    /*to remove the arrow of number type*/
-    border-color: #ff7ef5;
     outline: none;
-    box-shadow: 0 0 2px #ff7ef5;
+    transition: all 0.3s ease;
+}
+input[type="number"]:focus {
+    border-color: #ff7ef5;
+    box-shadow: 0 0 8px rgba(255, 126, 245, 0.6);
 }
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button{
-    --webkit-appearance: none;
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
     margin: 0;
 }
-.cash-text{
+
+/* Text beside input */
+.cash-text {
     font-weight: bold;
     margin-left: 10px;
-    width: 40px;
-    display: inline-block;
+    width: 45px;
     text-align: center;
-    color: white;
+    color: #fff;
 }
-button{
-    padding: 10px 20px;
+
+/* Button Styling */
+button {
+    padding: 12px 25px;
     font-size: 16px;
-    background-color: #ff7e5f;
+    font-weight: 500;
+    background: linear-gradient(135deg, #ff7e5f, #ff6c4a);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: flex-end;
-}
-button:hover{
-    background-color: #ff6c4a;
-}
-#txtFinalCash{
-    font-size: 18px;
-    font-weight: bold;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
-    color: #fff;
 }
-#txtFinalCashInWords{
-    margin-top: 10px;
-    font-style: italic;
-    color: #fff;
+button:hover {
+    box-shadow: 0 4px 15px rgba(255, 108, 74, 0.5);
+    transform: translateY(-2px);
 }
-.result{
+
+/* Results Section */
+.result {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#txtFinalCash {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#txtFinalCashInWords {
+    margin-top: 8px;
+    font-style: italic;
+    color: #fdfdfd;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
