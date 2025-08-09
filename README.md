@@ -1,7 +1,3 @@
-<!-- You can visit this website using this link: 
-https://prachi5791.github.io/Cash-Counter/ -->
-
-
 # 💰 Cash Calculator
 
 A simple and interactive **currency note calculator** built with **HTML**, **CSS**, and **JavaScript**.  
@@ -32,29 +28,6 @@ Enter the number of notes for each Indian currency denomination and instantly se
 - **HTML5** – Structure & layout
 - **CSS3** – Modern styling & animations
 - **JavaScript (ES6)** – Calculation logic
-
----
-
-## 📂 **Project Structure**
-
-cash-calculator/
-│
-├── index.html # Main HTML file
-├── cash.css # Stylesheet
-├── cash.js # JavaScript logic
-├── assets/ # Folder for note images
-│ ├── two_thousand_note.png
-│ ├── five_hundred_note.png
-│ ├── two_hundred_note.png
-│ ├── one_hundred.png
-│ ├── fifty_note.png
-│ ├── twenty_note.png
-│ ├── ten_note.png
-│ ├── five_note.png
-│ ├── two_note.png
-│ └── one_note.png
-└── README.md # Project documentation
-
 ---
 
 ## ⚙️ **How to Use**
@@ -81,7 +54,7 @@ cash-calculator/
 
 ## 📸 **Screenshots**
 
-*(Add screenshots of your app here)*
+<img width="1121" height="897" alt="image" src="https://github.com/user-attachments/assets/a9e7e905-f984-4d41-89fd-a27b955f59ac" />
 
 ---
 
